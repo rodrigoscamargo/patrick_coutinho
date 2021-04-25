@@ -1,0 +1,142 @@
+{
+    
+    "home": "Home",
+    "videos": "Videos",
+    "categories" : "Categorias",
+    "profile": "Perfil",
+    
+
+    "welcome to" : "Bem vindo a",
+    "sign in to continue": "Iniciar sessão para continuar",
+    "skip": "Pular",
+    "done": "Pronto",
+
+    "intro-title1" : "Explore as últimas notícias",
+    "intro-title2" : "Seja notificado primeiro",
+    "intro-title3" : "Salvar artigo",
+    "intro-description1" : "Explore as últimas notícias e eventos acontecendo ao redor do mundo em minutos ...",
+    "intro-description2" : "Assine e receba notificações de todos os nossos artigos e compartilhe com seus amigos ...",
+    "intro-description3" : "Marque, curta e comente seus artigos favoritos e compartilhe-os nas redes sociais ...",
+    "get started" : "Começar",
+    "don't have social accounts?" : "Não tem contas sociais?",
+    "continue with email >>" : "Continue com e-mail >>",
+
+    "sign up": "cadastre-se",
+    "sign in": "Login",
+    "follow the simple steps": "Siga os passos simples",
+    "name": "Nome",
+    "already have an account?": "Você já tem uma conta?",
+    "forgot password?": "Você esqueceu sua senha?",
+    "reset your password": "Redefina sua senha",
+    "submit": "Enviar",
+    "sign in successful!" : "Login com sucesso!",
+    "sign up successful!": "Cadastre-se com sucesso!",
+    "don't have an account?" : "Você não tem uma conta?",
+
+
+
+    "search news" : "Buscar noticias",
+    "popular news" : "Noticias populares",
+    "recent news" : "Artigos recentes",
+    "explore": "Explorar",
+    "featured": "Destaques",
+    "view all" : "ver todos",
+
+    "video articles" : "Artigos de video",
+    "most recent": "Mais recentes",
+    "most popular": "Mais populares",
+    "no categories found": "Nenhuma categoria encontrada",
+
+    
+
+
+
+    "people like this" : "Pessoas gostam disso",
+    "you might also like" : "você pode gostar também",
+    "no articles found" : "Nenhum item encontrado",
+
+
+    
+    "no internet" : "Sem ligação à Internet!",
+    "no comments found" : "Nenhum comentário encontrado",
+    "be the first to comment" : "Seja o primeiro a comentar",
+
+
+    "recent searchs" : "Pesquisas recentes",
+    "search-description" :  "Você ainda não procurou por nenhum item.\n Experimente agora, nós o ajudaremos!",
+    "we have found" : "Nós achamos",
+    "try again" : "Tenta de novo!",
+
+
+
+
+    "bookmarks" : "Marcadores",
+    "sign in first" : "Login primeiro",
+    "sign in to save your favourite articles here" : "Faça login para salvar seus artigos favoritos aqui",
+    "save your favourite articles here" : "Salve seus artigos favoritos aqui",
+
+
+
+
+    "check your internet connection!" : "Verifique sua conexão com a internet!",
+    "something is wrong. please try again." : "Algo está errado. Tenta de novo.",
+    "error fb login" : "Falha no login do Facebook! Por favor tente google",
+
+
+    
+    "cancel" : "Cancelar",
+    "no sign in title" : "Faça login primeiro para acessar este recurso",
+    "no sign in subtitle" : "Você não está logado. Faça login para desbloquear este recurso",
+
+    
+    
+    "comments" : "Comentários",
+    "write a comment" : "Escreva um comentário",
+
+
+    
+    "no content" : "Nenhum conteúdo encontrado",
+    "flag this comment" : "Marque este comentário",
+    "unflag this comment" : "Desmarque este comentário",
+    "report" : "Reportar",
+    "delete" : "Deletar",
+    "report-info" : "Seu relatório foi enviado com sucesso aos administradores.",
+    "report-info1" : "Obrigado pelo seu relatório. Responderemos em 24 horas.",
+    "report-guest" : "O registro é obrigatório!",
+    "report-guest1" : "Você tem que entrar para relatar quaisquer comentários.",
+    "comment flagged" : "Este comentário foi sinalizado!",
+
+
+    "notifications" : "Notificações",
+    "notification details" : "Detalhes de notificação",
+    "custom notifications": "Notificações Personalizadas",
+    "news notifications": "Notificações de notícias",
+    "no notification": "Nenhuma notificação encontrada",
+
+
+    
+    "general settings" : "Configuração geral",
+    "dark mode" : "Modo escuro",
+    "login" : "Login",
+    "get notifications" : "Receber notificações",
+    "contact us" : "Contate-nos",
+    "rate this app" : "Avalie este aplicativo",
+    "licence" : "Licença",
+    "privacy policy" : "Política de privacidade",
+    "about us" : "Sobre nós",
+    "logout" : "Sair",
+    "edit profile" : "Editar perfil",
+    "update profile" : "Atualizar perfil",
+    "updated successfully" : "Atualizado com sucesso",
+    "enter new name" : "Digite o novo nome",
+
+    "logout title" : "Tem certeza de que deseja sair do aplicativo?",
+    "yes" : "Sim",
+    "no" : "Não",
+
+    "language" : "Idioma",
+    "select language" : "Selecione um idioma"
+
+
+
+}

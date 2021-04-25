@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1050283038787",
+    "project_id": "patrickcoutinho-a4b2f",
+    "storage_bucket": "patrickcoutinho-a4b2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050283038787:android:df4609d28c0bfaa8f95cf6",
+        "android_client_info": {
+          "package_name": "br.com.patrickcoutinho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050283038787-ape5hh80uekbvnl5hfsbbnbomngbd3k4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAUBnDcl5oQ-9I-GSCRV23IV_zMlH8VVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050283038787-ape5hh80uekbvnl5hfsbbnbomngbd3k4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

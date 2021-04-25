@@ -1,0 +1,55 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+RPCError: ext.flutter.debugDumpRenderTree: (-32000) Bad state: The client closed with pending request "ext.flutter.debugDumpRenderTree".
+
+```
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, 1.23.0-18.1.pre, on Mac OS X 10.15.7 19H15 x86_64, locale en-GB)
+    • Flutter version 1.23.0-18.1.pre at /Users/rakibbhuiyan/tools/flutter
+    • Framework revision 198df796aa (5 weeks ago), 2020-10-15 12:04:33 -0700
+    • Engine revision 1d12d82d9c
+    • Dart version 2.11.0 (build 2.11.0-213.1.beta)
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.2)
+    • Android SDK at /Users/rakibbhuiyan/Library/Android/sdk
+    • Platform android-30, build-tools 30.0.2
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 12.1)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 12.1, Build version 12A7403
+    • CocoaPods version 1.10.0.rc.1
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin version 49.0.2
+    • Dart plugin version 193.7547
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+
+[✓] VS Code (version 1.51.1)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.16.0
+
+[✓] Connected device (3 available)
+    • sdk gphone x86 arm (mobile) • emulator-5554 • android-x86    • Android 11 (API 30) (emulator)
+    • Web Server (web)            • web-server    • web-javascript • Flutter Tools
+    • Chrome (web)                • chrome        • web-javascript • Google Chrome 85.0.4183.121
+
+• No issues found!
+```
