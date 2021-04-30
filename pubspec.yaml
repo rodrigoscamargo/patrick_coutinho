@@ -1,8 +1,5 @@
 name: news_app
 description: A new Flutter application.
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
 version: 3.0.1+7
 
 environment:
@@ -30,7 +27,7 @@ dependencies:
 #  firebase_storage: ^5.0.1
   flutter_custom_tabs: ^0.6.0
   flutter_facebook_login: ^3.0.0
-  flutter_html: ^1.0.1
+  flutter_html: ^1.2.0
   flutter_icons: ^1.1.0
   flutter_inappwebview: ^4.0.0+4
   flutter_widget_from_html: ^0.5.1+5
@@ -114,6 +111,13 @@ flutter:
         - asset: assets/fonts/OpenSans-Light.ttf
           weight: 400
         - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 500
+
+    - family: Helvetica
+      fonts:
+        - asset: assets/fonts/Helvetica-Light.otf
+          weight: 400
+        - asset: assets/fonts/Helvetica-Neue.otf
           weight: 500
 
     - family: Manrope

@@ -18,17 +18,19 @@ class DrawerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final sb = context.watch<SignInBloc>();
-    final List titles = ['bookmarks', 'Idioma', 'Suporte',];
-    final List icons = [
-      Feather.bookmark,
-      Feather.globe,
-      Feather.code,
-
+    final List titles = [
+      'Sobre nós',
+      'Áreas de atuação',
+      'Contato',
+      'Suporte',
     ];
-
-
+    final List icons = [
+      Feather.info,
+      Feather.target,
+      Feather.phone,
+      Feather.code,
+    ];
 
     return Drawer(
       child: SingleChildScrollView(
@@ -36,19 +38,19 @@ class DrawerMenu extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              alignment: Alignment.center,
-                color: context.watch<ThemeBloc>().darkTheme == false ? CustomColor().drawerHeaderColorLight : CustomColor().drawerHeaderColorDark,
-                padding: EdgeInsets.all(15),
-                height: 200,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    AppName(fontSize: 25.0),
-                    // Text('Version: ${sb.appVersion}', style: TextStyle(
-                    //   fontSize: 13, color: Colors.grey[600]
-                    // ),)
-                  ],
-                ),),
+              alignment: Alignment.topLeft,
+              color: context.watch<ThemeBloc>().darkTheme == false
+                  ? CustomColor().drawerHeaderColorLight
+                  : CustomColor().drawerHeaderColorDark,
+              padding: EdgeInsets.all(15),
+              //height: 200,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  //AppName(fontSize: 25.0),
+                ],
+              ),
+            ),
             Container(
               child: ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
@@ -59,28 +61,32 @@ class DrawerMenu extends StatelessWidget {
                     title: Text(
                       titles[index],
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
                     ).tr(),
                     leading: CircleAvatar(
                         radius: 20,
-                        backgroundColor: context.watch<ThemeBloc>().darkTheme == false ? CustomColor().drawerHeaderColorLight : CustomColor().drawerHeaderColorDark,
+                        backgroundColor:
+                            context.watch<ThemeBloc>().darkTheme == false
+                                ? CustomColor().drawerHeaderColorLight
+                                : CustomColor().drawerHeaderColorDark,
                         child: Icon(
                           icons[index],
                           color: Colors.grey[600],
                         )),
-                    onTap: () async{
+                    onTap: () async {
                       Navigator.pop(context);
-                      if(index == 0){
+                      if (index == 0) {
                         //nextScreen(context, BookmarkPage());
-                      }else if(index == 1){
+                      } else if (index == 1) {
                         nextScreenPopup(context, LanguagePopup());
-                      }else if(index == 2){
+                      } else if (index == 2) {
                         launchURL(context, Config().supportWhatsapp);
-                      }else if(index == 2){
-                       // launchURL(context, Config().privacyPolicyUrl);
-                      }else if(index == 2){
-                       // await launch('mailto:${Config().supportEmail}?subject=About ${Config().appName} App&body=');
+                      } else if (index == 3) {
+                        // launchURL(context, Config().privacyPolicyUrl);
+                      } else if (index == 4) {
+                        // await launch('mailto:${Config().supportEmail}?subject=About ${Config().appName} App&body=');
                       }
                     },
                   );

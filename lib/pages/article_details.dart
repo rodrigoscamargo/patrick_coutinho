@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/html_parser.dart';
 import 'package:flutter_html/style.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -21,6 +22,7 @@ import 'package:news_app/widgets/love_count.dart';
 import 'package:news_app/widgets/love_icon.dart';
 import 'package:news_app/widgets/related_articles.dart';
 import 'package:share/share.dart';
+import 'package:html/dom.dart' as dom;
 import 'package:provider/provider.dart';
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
@@ -42,7 +44,6 @@ class _ArticleDetailsState extends State<ArticleDetails> {
   String url = "";
   double progress = 0;
   CookieManager _cookieManager = CookieManager.instance();
-
 
   double rightPaddingValue = 140;
   bool adInitiated;
@@ -69,30 +70,6 @@ class _ArticleDetailsState extends State<ArticleDetails> {
       });
     });
 
-    contextMenu = ContextMenu(
-        menuItems: [
-          ContextMenuItem(androidId: 1, iosId: "1", title: "Special", action: () async {
-            print("Menu item Special clicked!");
-            print(await webView.getSelectedText());
-            await webView.clearFocus();
-          })
-        ],
-        options: ContextMenuOptions(
-            hideDefaultSystemContextMenuItems: true
-        ),
-        onCreateContextMenu: (hitTestResult) async {
-          print("onCreateContextMenu");
-          print(hitTestResult.extra);
-          print(await webView.getSelectedText());
-        },
-        onHideContextMenu: () {
-          print("onHideContextMenu");
-        },
-        onContextMenuActionItemClicked: (contextMenuItemClicked) async {
-          var id = (Platform.isAndroid) ? contextMenuItemClicked.androidId : contextMenuItemClicked.iosId;
-          print("onContextMenuActionItemClicked: " + id.toString() + " " + contextMenuItemClicked.title);
-        }
-    );
   }
 
   @override
@@ -155,133 +132,138 @@ class _ArticleDetailsState extends State<ArticleDetails> {
                       )
                     ],
                   ),
-                  SliverFillRemaining(
-                    hasScrollBody: false,
+                  SliverToBoxAdapter(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Container(
-                                        alignment: Alignment.center,
-                                        height: 30,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          color: context
-                                                      .watch<ThemeBloc>()
-                                                      .darkTheme ==
-                                                  false
-                                              ? CustomColor().loadingColorLight
-                                              : CustomColor().loadingColorDark,
-                                        ),
-                                        child: AnimatedPadding(
-                                          duration:
-                                              Duration(milliseconds: 1000),
-                                          padding: EdgeInsets.only(
-                                              left: 10,
-                                              right: rightPaddingValue,
-                                              top: 5,
-                                              bottom: 5),
-                                          child: Text(
-                                            d.category ?? 'Artigo',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        )),
-                                    Spacer(),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    Icon(CupertinoIcons.time_solid,
-                                        size: 18, color: Colors.grey),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      format.format(DateTime.parse(date)),
-                                      style: TextStyle(
-                                          color: Theme.of(context)
-                                              .secondaryHeaderColor,
-                                          fontSize: 12),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  d.title,
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Divider(
-                                  color: Theme.of(context).primaryColor,
-                                  endIndent: 280,
-                                  thickness: 2,
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-
-                                !rb.isLoading
-                                    ? Container(
-                                        //height: 1500,
-                                        child: Html(
-                                          data:
-                                          '''${rb.dom}''',
-                                          style: {
-                                            "p": null,
-                                            "br": Style(
-                                            ),
-                                            'div': Style(
-                                              margin: EdgeInsets.symmetric(
-                                              ),
-                                              lineHeight: 0,
-                                              textAlign: TextAlign.justify,
-
-                                            ),
-                                            // 'span': Style(
-                                            //   backgroundColor: Colors.red
-                                            // ),
-                                            'strong': Style(
-                                                fontSize: FontSize(16),
-                                                padding: EdgeInsets.all(0),
-                                              textAlign: TextAlign.justify
-                                            )
-                                          },
-                                          onLinkTap: (url) async {
-                                            launchURL(context, url);
-                                          },
-                                          onImageTap: (imageUrl) =>
-                                              nextScreenPopup(
-                                                  context,
-                                                  FullScreeImage(
-                                                      imageUrl: imageUrl)),
-                                        ),
-                                      )
-                                    : Container(
-                                        alignment: Alignment.center,
-                                        child: CircularProgressIndicator(),
+                        Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  Container(
+                                      alignment: Alignment.center,
+                                      height: 30,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(5),
+                                        color: context
+                                                    .watch<ThemeBloc>()
+                                                    .darkTheme ==
+                                                false
+                                            ? CustomColor()
+                                                .loadingColorLight
+                                            : CustomColor()
+                                                .loadingColorDark,
                                       ),
-
-                              ],
-                            ),
+                                      child: AnimatedPadding(
+                                        duration:
+                                            Duration(milliseconds: 1000),
+                                        padding: EdgeInsets.only(
+                                            left: 10,
+                                            right: rightPaddingValue,
+                                            top: 5,
+                                            bottom: 5),
+                                        child: Text(
+                                          d.category ?? 'Artigo',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      )),
+                                  Spacer(),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Icon(CupertinoIcons.time_solid,
+                                      size: 18, color: Colors.grey),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    format.format(DateTime.parse(date)),
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .secondaryHeaderColor,
+                                        fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                d.title,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Divider(
+                                color: Theme.of(context).primaryColor,
+                                endIndent: 280,
+                                thickness: 2,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              !rb.isLoading
+                                  ? Container(
+                                      //height: 3500,
+                                      child: Html(
+                                        shrinkWrap: true,
+                                        data: '''${rb.dom}''',
+                                        style: {
+                                          "p": null,
+                                          "br": Style(),
+                                          'div': Style(
+                                            margin: EdgeInsets.symmetric(),
+                                            lineHeight: 0,
+                                            textAlign: TextAlign.justify,
+                                          ),
+                                          // 'span': Style(
+                                          //   backgroundColor: Colors.red
+                                          // ),
+                                          'strong': Style(
+                                              fontFamily: 'Helvetica',
+                                              fontSize: FontSize(16),
+                                              fontWeight: FontWeight.normal,
+                                              padding: EdgeInsets.all(0),
+                                              textAlign: TextAlign.justify)
+                                        },
+                                        customRender: {
+                                          'img': (RenderContext context,
+                                              Widget child, attributes, _) {
+                                            return Container(
+                                              alignment: Alignment.center,
+                                              child: Image.network(
+                                                  attributes["src"]),
+                                            );
+                                          },
+                                        },
+                                        onLinkTap: (url) async {
+                                          launchURL(context, url);
+                                        },
+                                        onImageTap: (imageUrl) =>
+                                            nextScreenPopup(
+                                                context,
+                                                FullScreeImage(
+                                                    imageUrl: imageUrl)),
+                                      ),
+                                    )
+                                  : Container(
+                                      alignment: Alignment.center,
+                                      child: CircularProgressIndicator(),
+                                    ),
+                            ],
                           ),
                         ),
                       ],
@@ -295,4 +277,13 @@ class _ArticleDetailsState extends State<ArticleDetails> {
       ),
     );
   }
+}
+
+Widget getImageCustomRender(
+  RenderContext context,
+  Widget parsedChild,
+  Map<String, String> attributes,
+  dom.Element element,
+) {
+  return Container();
 }
