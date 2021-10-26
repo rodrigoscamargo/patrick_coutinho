@@ -1,11 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/popular_articles_bloc.dart';
-import 'package:news_app/cards/card1.dart';
-import 'package:news_app/pages/more_articles.dart';
-import 'package:news_app/utils/loading_cards.dart';
-import 'package:news_app/utils/next_screen.dart';
+import 'package:patrickcoutinho/blocs/popular_articles_bloc.dart';
+import 'package:patrickcoutinho/cards/card1.dart';
+import 'package:patrickcoutinho/pages/more_articles.dart';
+import 'package:patrickcoutinho/utils/loading_cards.dart';
+import 'package:patrickcoutinho/utils/next_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

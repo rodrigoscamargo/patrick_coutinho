@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/related_articles_bloc.dart';
-import 'package:news_app/cards/card3.dart';
+import 'package:patrickcoutinho/blocs/related_articles_bloc.dart';
+import 'package:patrickcoutinho/cards/card3.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

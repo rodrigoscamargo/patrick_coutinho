@@ -1,6 +1,3 @@
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class Comment {
 
   String uid;
@@ -20,18 +17,4 @@ class Comment {
     
   });
 
-
-  factory Comment.fromFirestore(DocumentSnapshot snapshot){
-    var d = snapshot.data();
-    return Comment(
-      uid: d['uid'],
-      name: d['name'],
-      imageUrl: d['image url'],
-      comment: d['comment'],
-      date: d['date'],
-      timestamp: d['timestamp'], 
-
-
-    );
-  }
 }

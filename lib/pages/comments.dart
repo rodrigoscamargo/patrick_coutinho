@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:news_app/utils/loading_cards.dart';
+import 'package:patrickkoutinho/utils/loading_cards.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../blocs/comments_bloc.dart';

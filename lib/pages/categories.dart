@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:news_app/blocs/categories_bloc.dart';
-import 'package:news_app/models/category.dart';
-import 'package:news_app/pages/category_based_articles.dart';
-import 'package:news_app/utils/cached_image.dart';
-import 'package:news_app/utils/empty.dart';
-import 'package:news_app/utils/loading_cards.dart';
-import 'package:news_app/utils/next_screen.dart';
+import 'package:patrickkoutinho/blocs/categories_bloc.dart';
+import 'package:patrickkoutinho/models/category.dart';
+import 'package:patrickkoutinho/pages/category_based_articles.dart';
+import 'package:patrickkoutinho/utils/cached_image.dart';
+import 'package:patrickkoutinho/utils/empty.dart';
+import 'package:patrickkoutinho/utils/loading_cards.dart';
+import 'package:patrickkoutinho/utils/next_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

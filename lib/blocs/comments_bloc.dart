@@ -1,12 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/utils/toast.dart';
+import 'package:patrickcoutinho/utils/toast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CommentsBloc extends ChangeNotifier{
 
-  
   String date;
   String newTimestamp;
 
@@ -14,11 +12,6 @@ class CommentsBloc extends ChangeNotifier{
   List<String> get flagList => _flagList;
 
   final String _collectionName = 'contents';
-  
-
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
-  
-  
 
   Future saveNewComment(String timestamp, String newComment) async{
 
@@ -27,21 +20,7 @@ class CommentsBloc extends ChangeNotifier{
     String _uid = sp.getString('uid');
     String _imageUrl = sp.getString('image_url');
 
-    await _getDate()
-    .then((value) => firestore
-       .collection('$_collectionName/$timestamp/comments')
-       .doc('$_uid$newTimestamp').set({
-        'name': _name,
-        'comment' : newComment,
-        'date' : date,
-        'image url' : _imageUrl,
-        'timestamp': newTimestamp,
-        'uid' : _uid
-       }));
-    
-    
     notifyListeners();
-
   }
 
 
@@ -49,8 +28,6 @@ class CommentsBloc extends ChangeNotifier{
 
 
   Future deleteComment (String timestamp, String uid, String timestamp2, ) async{
-
-    await firestore.collection('$_collectionName/$timestamp/comments').doc('$uid$timestamp2').delete();
     notifyListeners();
   }
 
@@ -111,19 +88,6 @@ class CommentsBloc extends ChangeNotifier{
     final String _documentName = 'comments_report';
     final String _commentDocumentName = '$uid$commnetTimestamp';
 
-
-    final CollectionReference ref = firestore.collection('user_reports').doc(_documentName).collection('reported_list');
-    await _getDate().then((value)async{
-      await ref.add({
-      'post_document': postDocumentName,
-      'reporter_uid' : _reporterUId,
-      'reported_uid' : uid,
-      'reported_at' : DateTime.now(),
-      'reported_document' : _commentDocumentName,
-      'timestamp' : newTimestamp
-    });
-    });
-    
   }
 
 

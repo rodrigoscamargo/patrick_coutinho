@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class NotificationModel {
   String title;
   String description;
@@ -13,14 +11,4 @@ class NotificationModel {
     this.timestamp
   });
 
-
-  factory NotificationModel.fromFirestore(DocumentSnapshot snapshot){
-    var d = snapshot.data();
-    return NotificationModel(
-      title: d['title'],
-      description: d['description'],
-      date: d['date'],
-      timestamp: d['timestamp'],
-    );
-  }
 }

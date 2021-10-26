@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:news_app/blocs/theme_bloc.dart';
+import 'package:patrickcoutinho/blocs/theme_bloc.dart';
 import 'package:provider/provider.dart';
 import '../utils/string_extensions.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/config/config.dart';
+import 'package:patrickcoutinho/config/config.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class LanguagePopup extends StatefulWidget {

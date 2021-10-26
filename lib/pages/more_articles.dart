@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/theme_bloc.dart';
-import 'package:news_app/cards/sliver_card.dart';
-import 'package:news_app/cards/sliver_card1.dart';
-import 'package:news_app/models/article.dart';
-import 'package:news_app/models/custom_color.dart';
-import 'package:news_app/utils/loading_cards.dart';
+import 'package:patrickkoutinho/blocs/theme_bloc.dart';
+import 'package:patrickkoutinho/cards/sliver_card.dart';
+import 'package:patrickkoutinho/cards/sliver_card1.dart';
+import 'package:patrickkoutinho/models/article.dart';
+import 'package:patrickkoutinho/models/custom_color.dart';
+import 'package:patrickkoutinho/utils/loading_cards.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 

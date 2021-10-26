@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Config {
-  final String appName = 'NewsHour';
+  final String appName = 'Suporte';
   final splashIcon = 'assets/splash.png';
-  final String supportEmail = 'mrblab24@gmail.com';
+  final String supportEmail = 'contato@patrickcoutinhoadvogados.com';
   final String supportWhatsapp =
       'https://chat.whatsapp.com/HQrPTo4XtWM6npVaaQbYDm';
   final String privacyPolicyUrl = 'https://docs.google.com';

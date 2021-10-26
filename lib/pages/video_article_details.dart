@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/style.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:news_app/blocs/bookmark_bloc.dart';
-import 'package:news_app/blocs/sign_in_bloc.dart';
-import 'package:news_app/blocs/theme_bloc.dart';
-import 'package:news_app/models/article.dart';
-import 'package:news_app/models/custom_color.dart';
-import 'package:news_app/pages/comments.dart';
-import 'package:news_app/utils/cached_image.dart';
-import 'package:news_app/utils/sign_in_dialog.dart';
-import 'package:news_app/widgets/bookmark_icon.dart';
-import 'package:news_app/widgets/full_image.dart';
-import 'package:news_app/widgets/launch_url.dart';
-import 'package:news_app/widgets/love_count.dart';
-import 'package:news_app/widgets/love_icon.dart';
-import 'package:news_app/widgets/related_articles.dart';
+import 'package:patrickkoutinho/blocs/bookmark_bloc.dart';
+import 'package:patrickkoutinho/blocs/sign_in_bloc.dart';
+import 'package:patrickkoutinho/blocs/theme_bloc.dart';
+import 'package:patrickkoutinho/models/article.dart';
+import 'package:patrickkoutinho/models/custom_color.dart';
+import 'package:patrickkoutinho/pages/comments.dart';
+import 'package:patrickkoutinho/utils/cached_image.dart';
+import 'package:patrickkoutinho/utils/sign_in_dialog.dart';
+import 'package:patrickkoutinho/widgets/bookmark_icon.dart';
+import 'package:patrickkoutinho/widgets/full_image.dart';
+import 'package:patrickkoutinho/widgets/launch_url.dart';
+import 'package:patrickkoutinho/widgets/love_count.dart';
+import 'package:patrickkoutinho/widgets/love_icon.dart';
+import 'package:patrickkoutinho/widgets/related_articles.dart';
 import 'package:share/share.dart';
 import 'package:provider/provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -39,11 +39,15 @@ class _VideoArticleDetailsState extends State<VideoArticleDetails> {
   YoutubePlayerController _controller;
   bool adInitiated;
 
+  String date;
+
+  DateFormat format = DateFormat('dd/MM/yyyy');
+
   initYoutube() async {
     _controller = YoutubePlayerController(
         initialVideoId: widget.data.videoID,
         flags: YoutubePlayerFlags(
-          autoPlay: false,
+          autoPlay: true,
           mute: false,
           forceHD: false,
           loop: true,
@@ -88,6 +92,9 @@ class _VideoArticleDetailsState extends State<VideoArticleDetails> {
   @override
   void initState() {
     super.initState();
+    // date = widget.data.date.substring(0, 10) +
+    //     ' ' +
+    //     widget.data.date.substring(11, 23);
     //initiateAdmobInterstitial();  //admob
     //initFbInterstitialAd();    //fb
 
@@ -198,22 +205,22 @@ class _VideoArticleDetailsState extends State<VideoArticleDetails> {
                                     ),
                                   )),
                               Spacer(),
-                              IconButton(
-                                  icon: BuildLoveIcon(
-                                      collectionName: 'contents',
-                                      uid: sb.uid,
-                                      timestamp: d.timestamp),
-                                  onPressed: () {
-                                    handleLoveClick();
-                                  }),
-                              IconButton(
-                                  icon: BuildBookmarkIcon(
-                                      collectionName: 'contents',
-                                      uid: sb.uid,
-                                      timestamp: d.timestamp),
-                                  onPressed: () {
-                                    handleBookmarkClick();
-                                  }),
+                              // IconButton(
+                              //     icon: BuildLoveIcon(
+                              //         collectionName: 'contents',
+                              //         uid: sb.uid,
+                              //         timestamp: d.timestamp),
+                              //     onPressed: () {
+                              //       handleLoveClick();
+                              //     }),
+                              // IconButton(
+                              //     icon: BuildBookmarkIcon(
+                              //         collectionName: 'contents',
+                              //         uid: sb.uid,
+                              //         timestamp: d.timestamp),
+                              //     onPressed: () {
+                              //       handleBookmarkClick();
+                              //     }),
                             ],
                           ),
                           SizedBox(
@@ -227,11 +234,15 @@ class _VideoArticleDetailsState extends State<VideoArticleDetails> {
                                 width: 5,
                               ),
                               Text(
-                                d.date,
+                                format
+                                        .format(
+                                            DateTime.parse(widget.data.date))
+                                        ?.toString() ??
+                                    '',
                                 style: TextStyle(
+                                    fontSize: 12,
                                     color:
-                                        Theme.of(context).secondaryHeaderColor,
-                                    fontSize: 12),
+                                        Theme.of(context).secondaryHeaderColor),
                               ),
                             ],
                           ),
@@ -248,81 +259,81 @@ class _VideoArticleDetailsState extends State<VideoArticleDetails> {
                             endIndent: 280,
                             thickness: 2,
                           ),
+                          // SizedBox(
+                          //   height: 5,
+                          // ),
+                          // d.sourceUrl == null
+                          //     ? Container()
+                          //     : InkWell(
+                          //         child: Container(
+                          //           margin: EdgeInsets.only(top: 8, bottom: 8),
+                          //           child: Chip(
+                          //             backgroundColor: context
+                          //                         .watch<ThemeBloc>()
+                          //                         .darkTheme ==
+                          //                     false
+                          //                 ? CustomColor().loadingColorLight
+                          //                 : CustomColor().loadingColorDark,
+                          //             shape: RoundedRectangleBorder(
+                          //                 borderRadius:
+                          //                     BorderRadius.circular(5)),
+                          //             materialTapTargetSize:
+                          //                 MaterialTapTargetSize.shrinkWrap,
+                          //             label: Wrap(
+                          //               alignment: WrapAlignment.center,
+                          //               children: [
+                          //                 Icon(
+                          //                   Feather.external_link,
+                          //                   size: 16,
+                          //                 ),
+                          //                 SizedBox(
+                          //                   width: 5,
+                          //                 ),
+                          //                 Text(
+                          //                   'source',
+                          //                   style: TextStyle(
+                          //                       fontSize: 14,
+                          //                       fontWeight: FontWeight.w500),
+                          //                 )
+                          //               ],
+                          //             ),
+                          //           ),
+                          //         ),
+                          //         onTap: () async {
+                          //           launchURL(context, d.sourceUrl);
+                          //         },
+                          //       ),
                           SizedBox(
                             height: 5,
                           ),
-                          d.sourceUrl == null
-                              ? Container()
-                              : InkWell(
-                                  child: Container(
-                                    margin: EdgeInsets.only(top: 8, bottom: 8),
-                                    child: Chip(
-                                      backgroundColor: context
-                                                  .watch<ThemeBloc>()
-                                                  .darkTheme ==
-                                              false
-                                          ? CustomColor().loadingColorLight
-                                          : CustomColor().loadingColorDark,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      materialTapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      label: Wrap(
-                                        alignment: WrapAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Feather.external_link,
-                                            size: 16,
-                                          ),
-                                          SizedBox(
-                                            width: 5,
-                                          ),
-                                          Text(
-                                            'source',
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  onTap: () async {
-                                    launchURL(context, d.sourceUrl);
-                                  },
-                                ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              LoveCount(
-                                  collectionName: 'contents',
-                                  timestamp: d.timestamp),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              SizedBox(
-                                width: 6,
-                              ),
-                              FlatButton.icon(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(3)),
-                                color: Colors.green[300],
-                                icon: Icon(Icons.comment,
-                                    color: Colors.black87, size: 20),
-                                label: Text('comments',
-                                        style: TextStyle(color: Colors.black87))
-                                    .tr(),
-                                onPressed: () {
-                                  _controller.pause();
-                                  nextScreen(context,
-                                      CommentsPage(timestamp: d.timestamp));
-                                },
-                              )
-                            ],
-                          ),
+                          // Row(
+                          //   children: <Widget>[
+                          //     LoveCount(
+                          //         collectionName: 'contents',
+                          //         timestamp: d.timestamp),
+                          //     SizedBox(
+                          //       width: 10,
+                          //     ),
+                          //     SizedBox(
+                          //       width: 6,
+                          //     ),
+                          //     FlatButton.icon(
+                          //       shape: RoundedRectangleBorder(
+                          //           borderRadius: BorderRadius.circular(3)),
+                          //       color: Colors.green[300],
+                          //       icon: Icon(Icons.comment,
+                          //           color: Colors.black87, size: 20),
+                          //       label: Text('comments',
+                          //               style: TextStyle(color: Colors.black87))
+                          //           .tr(),
+                          //       onPressed: () {
+                          //         _controller.pause();
+                          //         nextScreen(context,
+                          //             CommentsPage(timestamp: d.timestamp));
+                          //       },
+                          //     )
+                          //   ],
+                          // ),
                           SizedBox(
                             height: 20,
                           ),
@@ -340,12 +351,12 @@ class _VideoArticleDetailsState extends State<VideoArticleDetails> {
                           SizedBox(
                             height: 20,
                           ),
-                          Container(
-                              child: RelatedArticles(
-                            category: d.category,
-                            timestamp: d.timestamp,
-                            replace: true,
-                          )),
+                          // Container(
+                          //     child: RelatedArticles(
+                          //   category: d.category,
+                          //   timestamp: d.timestamp,
+                          //   replace: true,
+                          // )),
                         ],
                       ),
                     ),

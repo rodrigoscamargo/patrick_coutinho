@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/models/article.dart';
+import 'package:patrickcoutinho/models/article.dart';
 import 'package:html/parser.dart' show parse;
-import 'package:html/dom.dart' hide Text;
 
 class RecentBloc extends ChangeNotifier {
   List<Article> _data = [];
@@ -13,9 +11,6 @@ class RecentBloc extends ChangeNotifier {
   String get dom => _dom;
 
   final Dio _dio = Dio();
-
-  DocumentSnapshot _lastVisible;
-  DocumentSnapshot get lastVisible => _lastVisible;
 
   bool _isLoading = true;
   bool get isLoading => _isLoading;
@@ -47,9 +42,8 @@ class RecentBloc extends ChangeNotifier {
       if (result.statusCode == 200) {
         var _document = parse(result.data);
         _dom = _document.getElementsByClassName('kaqlz')[0].outerHtml;
-        
-        _dom.replaceAll('<br>', '');
 
+        _dom.replaceAll('<br>', '');
 
         notifyListeners();
       } else {
@@ -128,7 +122,6 @@ class RecentBloc extends ChangeNotifier {
   onRefresh(mounted) {
     _isLoading = true;
     _data.clear();
-    _lastVisible = null;
     getData(mounted);
     notifyListeners();
   }

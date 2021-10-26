@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/models/article.dart';
-import 'package:news_app/pages/article_details.dart';
-import 'package:news_app/pages/video_article_details.dart';
-import 'package:news_app/utils/cached_image.dart';
-import 'package:news_app/utils/next_screen.dart';
-import 'package:news_app/widgets/video_icon.dart';
+import 'package:patrickcoutinho/models/article.dart';
+import 'package:patrickcoutinho/pages/article_details.dart';
+import 'package:patrickcoutinho/pages/video_article_details.dart';
+import 'package:patrickcoutinho/utils/cached_image.dart';
+import 'package:patrickcoutinho/utils/next_screen.dart';
+import 'package:patrickcoutinho/widgets/video_icon.dart';
 
 class Card5 extends StatelessWidget {
   final Article d;

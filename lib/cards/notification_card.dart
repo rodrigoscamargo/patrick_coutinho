@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/config/config.dart';
-import 'package:news_app/models/notification.dart';
-import 'package:news_app/pages/notification_details.dart';
-import 'package:news_app/utils/next_screen.dart';
+import 'package:patrickcoutinho/config/config.dart';
+import 'package:patrickcoutinho/models/notification.dart';
+import 'package:patrickcoutinho/pages/notification_details.dart';
+import 'package:patrickcoutinho/utils/next_screen.dart';
 
 class NotificationCard extends StatelessWidget {
   final NotificationModel d;

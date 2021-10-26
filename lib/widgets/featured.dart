@@ -1,9 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/featured_bloc.dart';
-import 'package:news_app/cards/featured_card.dart';
-import 'package:news_app/utils/loading_cards.dart';
+import 'package:patrickcoutinho/blocs/featured_bloc.dart';
+import 'package:patrickcoutinho/cards/featured_card.dart';
+import 'package:patrickcoutinho/utils/loading_cards.dart';
 import 'package:provider/provider.dart';
 
 class Featured extends StatefulWidget {

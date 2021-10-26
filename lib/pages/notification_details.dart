@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:news_app/models/notification.dart';
-import 'package:news_app/utils/next_screen.dart';
-import 'package:news_app/widgets/full_image.dart';
-import 'package:news_app/widgets/launch_url.dart';
+import 'package:patrickkoutinho/models/notification.dart';
+import 'package:patrickkoutinho/utils/next_screen.dart';
+import 'package:patrickkoutinho/widgets/full_image.dart';
+import 'package:patrickkoutinho/widgets/launch_url.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class NotificationDetails extends StatelessWidget {

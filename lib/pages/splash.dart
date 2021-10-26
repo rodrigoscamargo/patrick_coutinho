@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_app/pages/welcome.dart';
+import 'package:patrickkoutinho/pages/welcome.dart';
 import 'package:provider/provider.dart';
 import '../blocs/sign_in_bloc.dart';
 import '../utils/next_screen.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:news_app/config/config.dart';
-import 'package:news_app/pages/intro.dart';
-import 'package:news_app/utils/next_screen.dart';
+import 'package:patrickkoutinho/config/config.dart';
+import 'package:patrickkoutinho/pages/intro.dart';
+import 'package:patrickkoutinho/utils/next_screen.dart';
 
 class DonePage extends StatefulWidget {
   const DonePage({Key key}) : super(key: key);

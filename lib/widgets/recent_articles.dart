@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/recent_articles_bloc.dart';
-import 'package:news_app/cards/card2.dart';
-import 'package:news_app/cards/card4.dart';
-import 'package:news_app/cards/card5.dart';
+import 'package:patrickcoutinho/blocs/recent_articles_bloc.dart';
+import 'package:patrickcoutinho/cards/card2.dart';
+import 'package:patrickcoutinho/cards/card4.dart';
+import 'package:patrickcoutinho/cards/card5.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

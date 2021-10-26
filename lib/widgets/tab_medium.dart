@@ -1,17 +1,17 @@
 
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/category_tab1_bloc.dart';
-import 'package:news_app/blocs/category_tab2_bloc.dart';
-import 'package:news_app/blocs/category_tab3_bloc.dart';
-import 'package:news_app/blocs/category_tab4_bloc.dart';
-import 'package:news_app/blocs/recent_articles_bloc.dart';
-import 'package:news_app/blocs/tab_index_bloc.dart';
-import 'package:news_app/config/config.dart';
-import 'package:news_app/tabs/category_tab1.dart';
-import 'package:news_app/tabs/category_tab2.dart';
-import 'package:news_app/tabs/category_tab3.dart';
-import 'package:news_app/tabs/category_tab4.dart';
-import 'package:news_app/tabs/tab0.dart';
+import 'package:patrickcoutinho/blocs/category_tab1_bloc.dart';
+import 'package:patrickcoutinho/blocs/category_tab2_bloc.dart';
+import 'package:patrickcoutinho/blocs/category_tab3_bloc.dart';
+import 'package:patrickcoutinho/blocs/category_tab4_bloc.dart';
+import 'package:patrickcoutinho/blocs/recent_articles_bloc.dart';
+import 'package:patrickcoutinho/blocs/tab_index_bloc.dart';
+import 'package:patrickcoutinho/config/config.dart';
+import 'package:patrickcoutinho/tabs/category_tab1.dart';
+import 'package:patrickcoutinho/tabs/category_tab2.dart';
+import 'package:patrickcoutinho/tabs/category_tab3.dart';
+import 'package:patrickcoutinho/tabs/category_tab4.dart';
+import 'package:patrickcoutinho/tabs/tab0.dart';
 import 'package:provider/provider.dart';
 
 

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:news_app/blocs/bookmark_bloc.dart';
-import 'package:news_app/blocs/sign_in_bloc.dart';
-import 'package:news_app/cards/card4.dart';
-import 'package:news_app/utils/empty.dart';
-import 'package:news_app/utils/loading_cards.dart';
+import 'package:patrickcoutinho/blocs/bookmark_bloc.dart';
+import 'package:patrickcoutinho/blocs/sign_in_bloc.dart';
+import 'package:patrickcoutinho/cards/card4.dart';
+import 'package:patrickcoutinho/utils/empty.dart';
+import 'package:patrickcoutinho/utils/loading_cards.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news_app/blocs/internet_bloc.dart';
-import 'package:news_app/blocs/sign_in_bloc.dart';
-import 'package:news_app/pages/done.dart';
-import 'package:news_app/pages/sign_in.dart';
-import 'package:news_app/utils/icons.dart';
-import 'package:news_app/utils/next_screen.dart';
-import 'package:news_app/utils/snacbar.dart';
+import 'package:patrickkoutinho/blocs/internet_bloc.dart';
+import 'package:patrickkoutinho/blocs/sign_in_bloc.dart';
+import 'package:patrickkoutinho/pages/done.dart';
+import 'package:patrickkoutinho/pages/sign_in.dart';
+import 'package:patrickkoutinho/utils/icons.dart';
+import 'package:patrickkoutinho/utils/next_screen.dart';
+import 'package:patrickkoutinho/utils/snacbar.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

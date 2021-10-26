@@ -1,62 +1,52 @@
-name: news_app
+name: patrickcoutinho
 description: A new Flutter application.
-version: 3.0.1+7
+version: 1.0.1+1
 
 environment:
   sdk: ">=2.11.9 <3.0.0"
 
 dependencies:
-  flutter_svg: 0.19.3
+  animated_bottom_navigation_bar:
+  flutter_svg:
   flutter:
     sdk: flutter
-
-    
-  animated_bottom_navigation_bar: ^0.1.2+2
-  dio: ^3.0.10
-  apple_sign_in: ^0.1.0
-  badges: ^1.1.1
-  cached_network_image: ^2.3.3
-  cloud_firestore: ^0.14.3
-  connectivity: ^2.0.2
-  cupertino_icons: ^1.0.0
-  dots_indicator: ^1.0.0
-  easy_localization: ^2.3.3
-#  firebase_auth: ^0.18.3
-#  firebase_core: ^0.5.2
-#  firebase_messaging: ^7.0.3
-#  firebase_storage: ^5.0.1
-  flutter_custom_tabs: ^0.6.0
-  flutter_facebook_login: ^3.0.0
-  flutter_html: ^1.2.0
-  flutter_icons: ^1.1.0
-  flutter_inappwebview: ^4.0.0+4
-  flutter_widget_from_html: ^0.5.1+5
-  google_fonts: ^1.1.1
-  google_sign_in: ^4.5.6
-  html: ^0.14.0+4
-  html_unescape: ^1.0.1+3
-  image_picker: ^0.6.7+14
-  intl: ^0.17.0
-  introduction_screen: ^1.0.9
-  launch_review: ^2.0.0
-  line_icons: ^0.2.0
-  lottie: ^0.6.0
-  md2_tab_indicator: ^1.0.2
-  package_info: ^0.4.3+2
-  path_provider: ^1.6.24
-  provider: ^4.3.2+2
-  share: ^0.6.5+3
-  shared_preferences: ^0.5.12+4
-  skeleton_text: ^1.0.0
-  toast: ^0.1.5
-  url_launcher: ^5.7.10
-  youtube_player_flutter: any
-  animated_progress_button: ^1.0.2+1
-  rounded_loading_button: ^1.0.15
-  firebase_analytics: ^6.2.0
-  # flutter_launch: any
-  # firebase_admob: ^0.10.2
-  # facebook_audience_network: ^0.7.1
+  dio:
+  badges:
+  cached_network_image:
+  connectivity:
+  cupertino_icons:
+  dots_indicator:
+  easy_localization: 2.3.3
+  flutter_custom_tabs: 1.0.3
+  flutter_html:
+  flutter_icons:
+  flutter_inappwebview:
+  flutter_widget_from_html:
+  google_fonts:
+  google_sign_in:
+  html:
+  html_unescape:
+  image_picker:
+  intl: 0.17.0
+  introduction_screen:
+  launch_review:
+  line_icons:
+  lottie:
+  md2_tab_indicator:
+  package_info:
+  path_provider:
+  provider:
+  share:
+  shared_preferences:
+  skeleton_text:
+  toast:
+  url_launcher:
+  youtube_player_flutter:
+  animated_progress_button:
+  rounded_loading_button:
+  firebase_analytics:
+  font_awesome_flutter:
+  ionicons:
 
 dev_dependencies:
   flutter_test:

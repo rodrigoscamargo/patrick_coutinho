@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:news_app/blocs/sign_in_bloc.dart';
-import 'package:news_app/config/config.dart';
-import 'package:news_app/pages/home.dart';
-import 'package:news_app/utils/next_screen.dart';
+import 'package:patrickkoutinho/blocs/sign_in_bloc.dart';
+import 'package:patrickkoutinho/config/config.dart';
+import 'package:patrickkoutinho/pages/home.dart';
+import 'package:patrickkoutinho/utils/next_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

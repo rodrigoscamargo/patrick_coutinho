@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/blocs/theme_bloc.dart';
-import 'package:news_app/models/custom_color.dart';
+import 'package:patrickcoutinho/blocs/theme_bloc.dart';
+import 'package:patrickcoutinho/models/custom_color.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 import 'package:provider/provider.dart';
 

@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
-import 'package:news_app/blocs/article_notification_bloc.dart';
-import 'package:news_app/blocs/custom_notification_bloc.dart';
-import 'package:news_app/widgets/article_notifications.dart';
-import 'package:news_app/widgets/custom_notifications.dart';
+import 'package:patrickkoutinho/blocs/article_notification_bloc.dart';
+import 'package:patrickkoutinho/blocs/custom_notification_bloc.dart';
+import 'package:patrickkoutinho/widgets/article_notifications.dart';
+import 'package:patrickkoutinho/widgets/custom_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 

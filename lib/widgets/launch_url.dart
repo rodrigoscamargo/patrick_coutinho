@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
-import 'package:news_app/utils/toast.dart';
+import 'package:patrickcoutinho/utils/toast.dart';
 
 void launchURL(BuildContext context, String url) async {
   try {

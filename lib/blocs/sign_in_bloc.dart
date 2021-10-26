@@ -1,28 +1,19 @@
-import 'package:apple_sign_in/apple_sign_in.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInBloc extends ChangeNotifier {
-
-  
   SignInBloc() {
     checkSignIn();
     checkGuestUser();
     initPackageInfo();
   }
 
-  // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final GoogleSignIn _googlSignIn = new GoogleSignIn();
-  final FacebookLogin _fbLogin = new FacebookLogin();
-  final String defaultUserImageUrl = 'https://www.oxfordglobal.co.uk/nextgen-omics-series-us/wp-content/uploads/sites/16/2020/03/Jianming-Xu-e5cb47b9ddeec15f595e7000717da3fe.png';
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final String defaultUserImageUrl =
+      'https://www.oxfordglobal.co.uk/nextgen-omics-series-us/wp-content/uploads/sites/16/2020/03/Jianming-Xu-e5cb47b9ddeec15f595e7000717da3fe.png';
 
   bool _guestUser = false;
   bool get guestUser => _guestUser;
@@ -35,7 +26,6 @@ class SignInBloc extends ChangeNotifier {
 
   String _errorCode;
   String get errorCode => _errorCode;
-
 
   String _name;
   String get name => _name;
@@ -60,20 +50,12 @@ class SignInBloc extends ChangeNotifier {
   String _packageName = '';
   String get packageName => _packageName;
 
-
-
-  void initPackageInfo () async{
+  void initPackageInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     _appVersion = packageInfo.version;
     _packageName = packageInfo.packageName;
     notifyListeners();
-    
   }
-
-
-
-
-  
 
   // Future signInWithGoogle() async {
   //   final GoogleSignInAccount googleUser = await _googlSignIn.signIn().catchError((error) => print('error : $error'));
@@ -106,8 +88,6 @@ class SignInBloc extends ChangeNotifier {
   //     notifyListeners();
   //   }
   // }
-
-
 
   // Future signInwithFacebook() async {
   //
@@ -152,8 +132,6 @@ class SignInBloc extends ChangeNotifier {
   //
   //   }
   // }
-
-
 
   // Future signInWithApple () async {
   //
@@ -208,7 +186,6 @@ class SignInBloc extends ChangeNotifier {
   //
   // }
 
-
   // Future signUpwithEmailPassword (userName,userEmail, userPassword) async{
   //   try{
   //     final User user = (await _firebaseAuth.createUserWithEmailAndPassword(email: userEmail,password: userPassword,)).user;
@@ -230,8 +207,6 @@ class SignInBloc extends ChangeNotifier {
   //
   // }
 
-
-
   // Future signInwithEmailPassword (userEmail, userPassword)async{
   //   try{
   //       final User user = (await _firebaseAuth.signInWithEmailAndPassword(email: userEmail, password: userPassword)).user;
@@ -250,45 +225,17 @@ class SignInBloc extends ChangeNotifier {
   //   }
   // }
 
-
-
   Future<bool> checkUserExists() async {
-    
-    DocumentSnapshot snap = await firestore.collection('users').doc(_uid).get();
-    if(snap.exists){
-      print('User Exists');
-      return true;
-    }else{
-      print('new user');
-      return false;
-    }
+    return false;
   }
 
-
-  Future saveToFirebase() async {
-    final DocumentReference ref = FirebaseFirestore.instance.collection('users').doc(_uid);
-    var userData = {
-      'name': _name,
-      'email': _email,
-      'uid': _uid,
-      'image url': _imageUrl,
-      'timestamp': timestamp,
-      'loved items': [],
-      'bookmarked items': []
-    };
-    await ref.set(userData);
-  }
-
-
-
+  Future saveToFirebase() async {}
 
   Future getTimestamp() async {
     DateTime now = DateTime.now();
     String _timestamp = DateFormat('yyyyMMddHHmmss').format(now);
     timestamp = _timestamp;
   }
-
-
 
   Future saveDataToSP() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
@@ -300,9 +247,7 @@ class SignInBloc extends ChangeNotifier {
     await sp.setString('sign_in_provider', _signInProvider);
   }
 
-
-
-  Future getDataFromSp () async {
+  Future getDataFromSp() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     _name = sp.getString('name');
     _email = sp.getString('email');
@@ -312,24 +257,9 @@ class SignInBloc extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
   Future getUserDatafromFirebase(uid) async {
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(uid)
-        .get()
-        .then((DocumentSnapshot snap) {
-      this._uid = snap.data()['uid'];
-      this._name = snap.data()['name'];
-      this._email = snap.data()['email'];
-      this._imageUrl = snap.data()['image url'];
-      print(_name);
-    });
     notifyListeners();
   }
-
-
 
   Future setSignIn() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
@@ -338,15 +268,11 @@ class SignInBloc extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
   void checkSignIn() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     _isSignedIn = sp.getBool('signed_in') ?? false;
     notifyListeners();
   }
-
-
 
   // Future userSignout() async {
   //   if(_signInProvider == 'apple'){
@@ -366,10 +292,7 @@ class SignInBloc extends ChangeNotifier {
   //
   // }
 
-  
-
-
-  Future afterUserSignOut ()async{
+  Future afterUserSignOut() async {
     // await userSignout().then((value)async{
     //   await clearAllData();
     //   _isSignedIn = false;
@@ -378,8 +301,6 @@ class SignInBloc extends ChangeNotifier {
     // });
   }
 
-
-
   Future setGuestUser() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     await sp.setBool('guest_user', true);
@@ -387,25 +308,16 @@ class SignInBloc extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
   void checkGuestUser() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     _guestUser = sp.getBool('guest_user') ?? false;
     notifyListeners();
   }
 
-
-
-
   Future clearAllData() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     sp.clear();
   }
-
-
-
-
 
   Future guestSignout() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
@@ -414,57 +326,11 @@ class SignInBloc extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future updateUserProfile(String newName, String newImageUrl) async {}
 
-
-
-  Future updateUserProfile (String newName, String newImageUrl) async{
-    final SharedPreferences sp = await SharedPreferences.getInstance();
-
-    FirebaseFirestore.instance.collection('users').doc(_uid)
-    .update({
-      'name': newName,
-      'image url' : newImageUrl
-    });
-
-    sp.setString('name', newName);
-    sp.setString('image_url', newImageUrl);
-    _name = newName;
-    _imageUrl = newImageUrl;
-    
-    notifyListeners();
-
-
+  Future<int> getTotalUsersCount() async {
+    return 0;
   }
 
-
-
-  Future<int> getTotalUsersCount () async {
-    final String fieldName = 'count';
-    final DocumentReference ref = firestore.collection('item_count').doc('users_count');
-      DocumentSnapshot snap = await ref.get();
-      if(snap.exists == true){
-        int itemCount = snap[fieldName] ?? 0;
-        return itemCount;
-      }
-      else{
-        await ref.set({
-          fieldName : 0
-        });
-        return 0;
-      }
-  }
-
-
-  Future increaseUserCount () async {
-    await getTotalUsersCount()
-    .then((int documentCount)async {
-      await firestore.collection('item_count')
-      .doc('users_count')
-      .update({
-        'count' : documentCount + 1
-      });
-    });
-  }
-
-
+  Future increaseUserCount() async {}
 }

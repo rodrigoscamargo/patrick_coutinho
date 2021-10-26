@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:news_app/pages/welcome.dart';
+import 'package:patrickcoutinho/pages/welcome.dart';
 import 'next_screen.dart';
 
 openSignInDialog(context){

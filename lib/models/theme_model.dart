@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/config/config.dart';
+import 'package:patrickcoutinho/config/config.dart';
 
 class ThemeModel {
   final lightMode = ThemeData(

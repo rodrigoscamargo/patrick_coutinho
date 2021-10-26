@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:news_app/blocs/ads_bloc.dart';
-import 'package:news_app/blocs/notification_bloc.dart';
-import 'package:news_app/pages/categories.dart';
-import 'package:news_app/pages/explore.dart';
-import 'package:news_app/pages/profile.dart';
-import 'package:news_app/pages/videos.dart';
+import 'package:patrickkoutinho/blocs/ads_bloc.dart';
+import 'package:patrickkoutinho/blocs/notification_bloc.dart';
+import 'package:patrickkoutinho/pages/categories.dart';
+import 'package:patrickkoutinho/pages/explore.dart';
+import 'package:patrickkoutinho/pages/profile.dart';
+import 'package:patrickkoutinho/pages/videos.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -102,11 +102,11 @@ class _HomePageState extends State<HomePage> {
             label: 'videos'.tr()
 
           ),
-          BottomNavigationBarItem(
-            icon: Icon(iconList[2], size: 25,),
-            label: 'categories'.tr()
-
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(iconList[2], size: 25,),
+          //   label: 'categories'.tr()
+          //
+          // ),
           BottomNavigationBarItem(
             icon: Icon(iconList[3]),
             label: 'profile'.tr()
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Explore(),
           VideoArticles(),
-          Categories(),
+          // Categories(),
           ProfilePage()
         ],
       ),
